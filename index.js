@@ -46,7 +46,7 @@ const pizzas = [
   },
 ];
 
-//Yo quiero que al ingresar un numero se imprima en pantalla las características de la pizza. Si se ingresa un numero que no corresponde mandar un mensaje. 
+//Yo quiero que al ingresar un numero se imprima en pantalla las características de la pizza. Si se ingresa un numero que no corresponde mandar un mensaje, pero que se pisen los mensajes con la img, que muestre solo 1 cosa.  
 
 
 // 1° defino viariables. 
@@ -68,29 +68,28 @@ const BuscarPizza = (e) => {
     PizzaSelected.innerHTML = ""; // esto lo agrego porque quiero que se imprima SÓLO una cosa, que se pisen los mensajes y las img
     return
   }
-  else {
-    const pizzaEncontrada = pizzas.find(pizza => pizza.id === parseInt(PizzaNumber));
+  else { // si no
+    const pizzaEncontrada = pizzas.find(pizza => pizza.id === parseInt(PizzaNumber)); // quiero que dentro del array de pizzas busques el id y me parsees el value que se pone en el input PizzaNumber
 
-    if (pizzaEncontrada) {
+    if (pizzaEncontrada) { // Si la pizza es encontrada por el ID quiero que me crees esta card. 
       ErrorMensaje.innerHTML = "";
-      PizzaSelected.innerHTML = 
+      PizzaSelected.innerHTML =  // antes había desestructurado para crear una nueva variante, pero creo que es más funcional así
       `
-        <div id="CardPizza">
-          <h2>${pizzaEncontrada.nombre.toLocaleUpperCase()}</h2>
+        <div id="CardPizza"> 
+          <h2>${pizzaEncontrada.nombre.toLocaleUpperCase()}</h2> 
           <h3>$${pizzaEncontrada.precio}</h3>
           <img src="${pizzaEncontrada.imagen}" alt="${pizzaEncontrada.nombre}">
         </div>
       ` 
       
 
-    } else {
+    } else { // sino la encontras por el id quiero que me pongas este mensaje
       ErrorMensaje.innerHTML = "Upps! No existe ninguna pizza con ese número ¿Volves a buscar?";
-      PizzaSelected.innerHTML = "";
+      PizzaSelected.innerHTML = ""; // y pongo ésto para que mi pise la img de la pizza si es que se encontró una antes.
    
     }  
   }
 }
-
 
 
 
