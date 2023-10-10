@@ -84,7 +84,7 @@ const BuscarPizza = (e) => {
       
 
     } else {
-      ErrorMensaje.innerHTML = "Upps! No existe ninguna pizza con ese número. ";
+      ErrorMensaje.innerHTML = "Upps! No existe ninguna pizza con ese número ¿Volves a buscar?";
       PizzaSelected.innerHTML = "";
    
     }  
@@ -102,62 +102,6 @@ const init = () =>{
 }
 
 init()
-
-
-
-
-
-//
-//const renderizarPizza = (pizzaBuscada) =>{
-//  const {nombre, precio,imagen, ingredientes} = pizzaBuscada
-//
-//  return PizzaSelected.innerHTML = 
-//    `
-//     <div id= "CardPizza">
-//        <h2>${nombre()}</h2>
-//        <h3>${precio()}</h3>
-//        <img src="${imagen}">
-//        <p>${ingredientes()}</p> 
-//      </div>
-//    `   
-//
-//}
-//
-//const saveLocalSorage = (selection) => {
-//  localStorage.setItem('pizzaGuardada', JSON.stringify(selection))
-//}
-//
-//
-//const filterPizza = (pizzasArray, laPizzaBuscada) =>{
-//
-//  const BucarPizza = pizzasArray.filter((pizza)=> {return pizza.id == laPizzaBuscada})
-//  return BucarPizza [0]
-//}
-//
-//const BuscandoPizza = () =>{
-//  const laPizza = InputFormPizza.value
-//  PizzaSelected.innerHTML = ""
-//
-//  if (BuscarPizza (laPizza)){
-//    ErrorMensaje.innerHTML = ""
-//    const pizzaFilter = filterPizza(pizzas,laPizza)
-//    renderizarPizza (pizzaFilter)
-//  }
-//
-//}
-//
-//
-//const pizzaGuardada = () =>{
-//  const pizzaInicial = JSON.parse(localStorage.getItem(`pizzaGuardada`))
-//  if (pizzaInicial){
-//    const pizzaFilter = filterPizza (pizzas, pizzaInicial)
-//    renderizarPizza (pizzaFilter)
-//  }
-//}
-//
-//
-
-
 
 
 
