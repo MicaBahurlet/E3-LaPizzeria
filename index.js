@@ -67,7 +67,7 @@ const BuscarPizza = (e) => {
   e.preventDefault (); // quiero eliminar el comportamiento por defecto del form
   const PizzaNumber = InputFormPizza.value; // me quiero agarar el valor number que se ingrese al input
   if (PizzaNumber === ""){
-    ErrorMensaje.innerText = "Upps! está vacío, ingresá un número por favor. 	" // me traigo la variable donde quiero imprimir el mensaje y agrego el inner text. También pódría ser inner html
+    ErrorMensaje.innerText = "Upps! el campo está vacío, ingresá un número por favor. 	" // me traigo la variable donde quiero imprimir el mensaje y agrego el inner text. También pódría ser inner html
     PizzaSelected.innerHTML = ""; // esto lo agrego porque quiero que se imprima SÓLO una cosa, que se pisen los mensajes y las img
     return
   }
