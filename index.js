@@ -60,6 +60,9 @@ const PizzaSelected = document.getElementById ("PizzaRender") // traigo el conta
 //console.log (InputFormPizza)
 
 
+
+
+
 const BuscarPizza = (e) => { 
   e.preventDefault (); // quiero eliminar el comportamiento por defecto del form
   const PizzaNumber = InputFormPizza.value; // me quiero agarar el valor number que se ingrese al input
@@ -81,7 +84,7 @@ const BuscarPizza = (e) => {
           <img src="${pizzaEncontrada.imagen}" alt="${pizzaEncontrada.nombre}">
         </div>
       ` 
-      
+      saveLocalStorage(pizzaEncontrada); // llamar funcion del localStorage
 
     } else { // sino la encontras por el id quiero que me pongas este mensaje
       ErrorMensaje.innerHTML = "Upps! No existe ninguna pizza con ese número ¿Volves a buscar?";
@@ -92,10 +95,36 @@ const BuscarPizza = (e) => {
 }
 
 
+//LocalStorage en function para que quede más organizado. El Local Storage SOLO soporta String. Por eso uso JSON 
+
+const saveLocalStorage = (pizzaEncontrada) => { // a esta funcion también debería llamarla en pizza encontrada
+  localStorage.setItem('ultimaPizza', JSON.stringify(pizzaEncontrada)); 
+};
+
+
+
+const cargarUltimaPizza = () => {
+  const ultimaPizza = JSON.parse(localStorage.getItem('ultimaPizza')); // del localStorage traeme los items que se llamen ultimaPizza
+  
+  if (ultimaPizza) {
+    PizzaSelected.innerHTML =  // acá genero código para que que me reemplace entre las ${} los datos de la última pizza que haya buscado la persona. 
+    `
+      <div id="CardPizza"> 
+        <h2>${ultimaPizza.nombre.toLocaleUpperCase()}</h2> 
+        <h3>$${ultimaPizza.precio}</h3>
+        <img src="${ultimaPizza.imagen}" alt="${ultimaPizza.nombre}">
+      </div>
+    `;
+  }
+};
+
+
+
 
 //// Funcion inicializadora
 
 const init = () =>{
+  document.addEventListener("DOMContentLoaded", cargarUltimaPizza) // DOMContentLoaded para que al cargar la página me guarde lo que tengo en el localStorage
   FormPizzas.addEventListener ("submit", BuscarPizza) // 1° función, elimino el comportamiento por defecto del form y además me quedo con el value y si el campo está vacio o no corresponde a una pizza imprmo error
 
 }
