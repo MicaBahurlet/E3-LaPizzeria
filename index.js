@@ -107,7 +107,7 @@ const cargarUltimaPizza = () => {
   const ultimaPizza = JSON.parse(localStorage.getItem('ultimaPizza')); // del localStorage traeme los items que se llamen ultimaPizza
   
   if (ultimaPizza) {
-    PizzaSelected.innerHTML =  // acá genero código para que que me reemplace entre las ${} los datos de la última pizza que haya buscado la persona. 
+    PizzaSelected.innerHTML =  // acá uso ${} para que me reemplace los datos de la última pizza que haya buscado la persona. 
     `
       <div id="CardPizza"> 
         <h2>${ultimaPizza.nombre.toLocaleUpperCase()}</h2> 
